@@ -50,9 +50,8 @@ public class DoctorMgmtServiceImpl implements IDoctorService {
 	}
 
 	@Override
-	public boolean findById(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isCustomerAvailable(Integer id) {
+		boolean flag = doctorRepo.existsById(id);
+		return flag;
 	}
-
 }

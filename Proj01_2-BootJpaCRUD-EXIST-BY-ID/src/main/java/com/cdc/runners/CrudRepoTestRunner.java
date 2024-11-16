@@ -1,7 +1,5 @@
 package com.cdc.runners;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,6 +12,8 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 
 	@Autowired
 	private IDoctorService doctorService;
+	@Autowired
+	private Doctor doctor;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -28,20 +28,35 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}*/
+		/*try {
+			Doctor doc1 = new Doctor();
+			doc1.setDocName("Meda");
+			doc1.setDocIncome(100000.00);
+			doc1.setDocSpecialization("Hemotology");
+			Doctor doc2 = new Doctor();
+			doc2.setDocIncome(20000.00);
+			doc2.setDocName("Rajesh");
+			doc2.setDocSpecialization("Neurology");
+			Doctor doc3 = new Doctor();
+			doc3.setDocIncome(30000.00);
+			doc3.setDocName("antony");
+			doc3.setDocSpecialization("RMP");
+			String msg = doctorService.registerGroupOfDoctors(List.of(doc1, doc2, doc3));
+			System.out.println(msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
 
-		Doctor doc1 = new Doctor();
-		doc1.setDocName("Meda");
-		doc1.setDocIncome(100000.00);
-		doc1.setDocSpecialization("Hemotology");
-		Doctor doc2 = new Doctor();
-		doc2.setDocIncome(20000.00);
-		doc2.setDocName("Rajesh");
-		doc2.setDocSpecialization("Neurology");
-		Doctor doc3 = new Doctor();
-		doc3.setDocIncome(30000.00);
-		doc3.setDocName("antony");
-		doc3.setDocSpecialization("RMP");
-		String msg = doctorService.registerGroupOfDoctors(List.of(doc1, doc2, doc3));
-		System.out.println(msg);
+		try {
+			boolean flag = doctorService.isCustomerAvailable(1);
+			if (flag) {
+				System.out.println("Doctor Available with " + doctor.getDocId() + "Number");
+			} else {
+				System.out.println("Doctor Not available");
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 }

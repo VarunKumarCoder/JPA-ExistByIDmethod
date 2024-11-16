@@ -7,6 +7,6 @@ public interface IDoctorService {
 
 	public String registerGroupOfDoctors(Iterable<Doctor> doctors);
 
-	public boolean findById(Integer id);
+	public boolean isCustomerAvailable(Integer id);
 
 }
