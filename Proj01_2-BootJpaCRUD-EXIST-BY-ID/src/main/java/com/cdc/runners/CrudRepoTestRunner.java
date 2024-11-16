@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.cdc.entity.Doctor;
 import com.cdc.service.IDoctorService;
 
 @Component
@@ -12,8 +11,6 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 
 	@Autowired
 	private IDoctorService doctorService;
-	@Autowired
-	private Doctor doctor;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -50,7 +47,7 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		try {
 			boolean flag = doctorService.isCustomerAvailable(1);
 			if (flag) {
-				System.out.println("Doctor Available with " + doctor.getDocId() + "Number");
+				System.out.println("Doctor Available with Given ID  Number");
 			} else {
 				System.out.println("Doctor Not available");
 			}
